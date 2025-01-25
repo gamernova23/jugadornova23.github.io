@@ -1,0 +1,234 @@
+/* Estilo general para el body */
+body {
+    background-color: #b1e005;
+    color: #e7d4d4; /* Color de texto predeterminado */
+    font-family: 'Courier New', sans-serif; /* Fuente general */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Contenedor principal (cualquier parte dentro de <main>) */
+main {
+    background: #b1e005;
+    padding: 40px 20px;
+    margin-top: 194px;  /* Se mantiene el margen superior */
+    color: #e7d4d4;
+}
+
+main .container {
+    max-width: 1200px;  /* Limitar el ancho máximo */
+    margin: 0 auto;  /* Centrar el contenido */
+    padding: 20px;
+}
+
+main h1, main h2 {
+    font-family: 'Georgia', serif;
+    color: #e7d4d4;
+    margin-bottom: 20px;  /* Espacio debajo de los encabezados */
+    text-align: center;  /* Centrar los encabezados */
+}
+
+main p {
+    font-family: 'Georgia', serif;
+    font-size: 16px;  /* Ajustar el tamaño de la fuente para mejor lectura */
+    color: #e7d4d4;
+    line-height: 1.6;  /* Aumentar la altura de línea para mayor legibilidad */
+    margin-bottom: 20px;  /* Espacio después de cada párrafo */
+    text-align: justify;  /* Justificar el texto para que se vea más profesional */
+}
+
+main h1 {
+    font-size: 2.5em;  /* Aumentar el tamaño de los encabezados principales */
+}
+
+main h2 {
+    font-size: 2em;  /* Aumentar ligeramente los subtítulos */
+}
+
+/* Estilo de los enlaces dentro de main */
+main a {
+    color: rgb(11, 1, 158);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+main a:hover {
+    color: rgb(0, 10, 151);
+}
+
+/* Agregar un fondo o sombra a los artículos para que se resalten un poco */
+article {
+    background-color: rgba(0, 0, 0, 0.8);  /* Fondo oscuro semitransparente */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);  /* Sombra suave */
+}
+
+/* Estilo de los párrafos */
+p {
+    color: #e7d4d4;
+    font-family: Georgia, serif; /* Aplica Georgia a los párrafos */
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+/* Estilos para la navegación */
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #868686;
+}
+
+.container__menu {
+    width: 100%;
+    height: 150px;
+    background: #b1e005;
+    padding: 0px 20px;
+}
+
+.menu {
+    max-width: 1200px;
+    margin: auto;
+    height: 100%;
+}
+
+nav {
+    height: 100%;
+}
+
+nav > ul {
+    height: 100%;
+    display: flex;
+}
+
+nav ul li {
+    height: 100%;
+    list-style: none;
+    position: relative;
+}
+
+nav > ul > li > a {
+    width: 150%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    font-size: 20px;
+    transition: all 300ms ease;
+}
+
+nav > ul > li > a:hover {
+    transform: scale(1.1);
+    background: #00487c;
+    box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.5);
+}
+
+nav ul li ul {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    background: #000000;
+    position: absolute;
+    top: 90px;
+    left: -5px;
+    padding: 20px 0px;
+    visibility: hidden;
+    opacity: 0;
+    box-shadow: 0px 0px 10px 0px rgba(248, 247, 247, 0.5);
+    z-index: 10;
+    transition: all 300ms ease;
+}
+
+nav ul li:hover ul {
+    visibility: visible;
+    opacity: 1;
+    top: 70px;
+}
+
+nav ul li ul:before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-bottom: 12px solid white;
+    position: absolute;
+    top: -12px;
+    left: 20px;
+}
+
+nav ul li ul li a {
+    display: block;
+    color: #0099E9;
+    padding: 6px;
+    padding-left: 14px;
+    margin-top: 10px;
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: all 300ms ease;
+}
+
+nav ul li ul li a:hover {
+    background: #0074C7;
+    color: #000000;
+    transform: scale(1.1);
+    padding-left: 30px;
+    font-size: 20px;
+    box-shadow: 0px 0px 10px 0px rgba(255, 254, 254, 0.5);
+}
+
+/* Media query para pantallas pequeñas (móviles) */
+@media screen and (max-width: 720px) {
+    .search input {
+        display: none;
+    }
+
+    nav > ul {
+        flex-direction: column;
+        background-color: #023877;
+        position: fixed;
+        left: 0;
+        top: 158px;
+        width: 100%;
+        height: 300px;
+        transition: all 300ms ease;
+        z-index: 100;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    nav > ul > li > a:hover {
+        transform: scale(1);
+    }
+
+    nav ul li ul {
+        left: 90px;
+    }
+
+    nav > ul > li:hover ul {
+        top: 50px;
+    }
+
+    /* Ajustes para el contenido de main en pantallas pequeñas */
+    main {
+        padding: 20px 10px;  /* Reducir el padding en pantallas más pequeñas */
+    }
+
+    main h1, main h2 {
+        font-size: 1.8em;  /* Reducir el tamaño de los encabezados */
+    }
+
+    main p {
+        font-size: 14px;  /* Reducir el tamaño del texto para pantallas pequeñas */
+    }
+
+    article {
+        padding: 20px;  /* Ajustar el padding para pantallas más pequeñas */
+    }
+}
