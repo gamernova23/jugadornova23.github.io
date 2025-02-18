@@ -1,45 +1,252 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Inicial</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <div class="container__menu">
-            <div class="menu">
-                <nav>
-                    <ul>
-                        <li><a href="https://proyectodeprogramacion.on.drv.tw/mi%20pagina%20web/1/">Inicio</a></li>
-                        <li><a href="#">Páginas</a>
-                            <ul>
-                                <li><a href="https://proyectodeprogramacion.on.drv.tw/mi%20pagina%20web/2/">Página 1</a></li>
-                                <li><a href="https://proyectodeprogramacion.on.drv.tw/mi%20pagina%20web/3/">Página 2</a></li>
-                                <li><a href="https://proyectodeprogramacion.on.drv.tw/mi%20pagina%20web/4/">Página 3</a></li>
-                                <li><a href="https://proyectodeprogramacion.on.drv.tw/mi%20pagina%20web/5/">Página 4</a></li>
-                                <li><a href="https://proyectodeprogramacion.on.drv.tw/mi%20pagina%20web/6/">Página 5</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Información</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </header>
+/* style.css */
+:root {
+    --primary-color: #1a5c1a;
+    --secondary-color: #cfe8cf;
+    --accent-color: #ffd700;
+    --dark-bg: #0d2d0d;
+    --header-height: 80px;
+    --font-primary: 'Segoe UI', system-ui, sans-serif;
+    --font-secondary: Georgia, serif;
+    --transition-speed: 0.3s;
+}
 
-    <main>
-        <div class="container">
-            <article>
-                <h1>--------------------------</h1>
-                <h1>Hola, bienvenidos a este sitio web</h1>
-                <h1>Este sitio web se está construyendo</h1>
-                <h1>Es un proyecto que lo estoy haciendo con la finalidad de aprender a programar una página web</h1>
-                <h1>--------------------------</h1>
-            </article>
-        </div>
-    </main>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-</body>
-</html>
+body {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    font-family: var(--font-primary);
+    line-height: 1.6;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: linear-gradient(to right, var(--dark-bg), var(--primary-color));
+    height: var(--header-height);
+    z-index: 1000;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    height: 100%;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.logo {
+    font-size: 1.8rem;
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 700;
+    transition: opacity var(--transition-speed);
+}
+
+.logo:hover {
+    opacity: 0.9;
+}
+
+.main-menu {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.main-menu a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: all var(--transition-speed);
+    position: relative;
+}
+
+.main-menu a:hover {
+    background: rgba(255, 215, 0, 0.1);
+    color: var(--accent-color);
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--dark-bg);
+    min-width: 200px;
+    padding: 1rem;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-speed);
+    z-index: 1000;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 0.75rem;
+    margin: 0.25rem 0;
+    color: var(--secondary-color);
+}
+
+.dropdown-menu a:hover {
+    background: rgba(255, 215, 0, 0.1);
+}
+
+main {
+    margin-top: calc(var(--header-height) + 2rem);
+    padding: 2rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.card {
+    background: rgba(13, 45, 13, 0.9);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    margin-bottom: 2rem;
+}
+
+h1, h2 {
+    font-family: var(--font-secondary);
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 2rem;
+    margin: 2rem 0;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.styled-list {
+    list-style: none;
+    padding-left: 1.5rem;
+}
+
+.styled-list li {
+    position: relative;
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+}
+
+.styled-list li::before {
+    content: "▹";
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+}
+
+.progress-container {
+    margin-top: 2rem;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-color), #ffea00);
+    transition: width 1s ease-in-out;
+}
+
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+@media (max-width: 992px) {
+    .hamburger {
+        display: block;
+    }
+
+    .main-menu {
+        position: fixed;
+        top: var(--header-height);
+        right: -100%;
+        flex-direction: column;
+        background: var(--dark-bg);
+        width: 280px;
+        height: calc(100vh - var(--header-height));
+        padding: 2rem;
+        transition: right var(--transition-speed);
+    }
+
+    .main-menu.active {
+        right: 0;
+    }
+
+    .dropdown-menu {
+        position: static;
+        background: transparent;
+        box-shadow: none;
+        padding: 0;
+        margin-left: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+
+    .container {
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+}
